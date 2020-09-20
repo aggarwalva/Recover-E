@@ -98,7 +98,7 @@ public class RecoverEUnlock extends Application {
         group.setScaleY(2);
         group.setScaleZ(2);
 
-        Text text = new Text("Password: " + password);
+        TextField text = new TextField("Password: " + password);
 
         root.setAlignment(Pos.TOP_CENTER);
         root.setVgap(10);
