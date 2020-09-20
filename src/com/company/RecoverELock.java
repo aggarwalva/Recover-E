@@ -10,14 +10,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import net.lingala.zip4j.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
 import net.lingala.zip4j.model.ZipParameters;
-import net.lingala.zip4j.model.enums.AesKeyStrength;
 import net.lingala.zip4j.model.enums.CompressionLevel;
 import net.lingala.zip4j.model.enums.CompressionMethod;
 import net.lingala.zip4j.model.enums.EncryptionMethod;
@@ -197,22 +194,6 @@ public class RecoverELock extends Application {
         stage.setScene(new Scene(root, 640, 480));
 
         stage.show();
-    }
-
-    private static void createZip() {
-        ZipFile testzip = new ZipFile("testzipfile.zip");
-
-        ZipParameters parameters = new ZipParameters();
-        parameters.setCompressionMethod(CompressionMethod.DEFLATE);
-        parameters.setCompressionLevel(CompressionLevel.NORMAL);
-        parameters.setEncryptFiles(true);
-        parameters.setEncryptionMethod(EncryptionMethod.ZIP_STANDARD);
-        testzip.setPassword("HelloWorld".toCharArray());
-        try {
-            testzip.addFile(new File("C:\\Users\\Varun\\Desktop\\zippy.txt"), parameters);
-        } catch (ZipException e) {
-            e.printStackTrace();
-        }
     }
 
     private static String generatePassword(String key, byte[] salt)
